@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ButtonRandom } from "./components/ButtonRandom";
 import { JokeDisplay } from "./components/JokeDisplay";
-import { fetchRandomJoke } from "./api/jokeApi";
+import { fetchRandomJoke } from "./api/jokeAPI";
 
 function App() {
   const [joke, setJoke] = useState("");
@@ -10,7 +10,7 @@ function App() {
     try {
       const data = await fetchRandomJoke();
       setJoke(data.content);
-    } catch (err) {
+    } catch {
       setJoke("Erreur lors du chargement de la blague.");
     }
   };
