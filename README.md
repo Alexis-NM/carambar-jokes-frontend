@@ -43,24 +43,6 @@ npm run deploy
 
 Le site sera accessible à : `https://alexis-nm.github.io/carambar-jokes-frontend/`
 
-## Structure du projet
-
-```
-carambar-jokes-frontend/
-├─ public/
-├─ src/
-│  ├─ api/
-│  │  └─ jokeApi.js    # service axios
-│  ├─ components/
-│  │  ├─ ButtonRandom.jsx
-│  │  └─ JokeDisplay.jsx
-│  ├─ App.jsx
-│  ├─ main.jsx
-│  └─ index.css
-├─ .env
-└─ package.json
-```
-
 ## Fonctionnalités
 
 - Bouton « Donne-moi une blague ! » pour récupérer une blague aléatoire.
