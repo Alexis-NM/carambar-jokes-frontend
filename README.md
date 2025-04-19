@@ -1,12 +1,71 @@
-# React + Vite
+# Carambar Jokes Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![GitHub Pages](https://img.shields.io/badge/deployed%20on-GitHub%20Pages-blue)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Mini-application web React lancée avec Vite pour afficher aléatoirement des blagues Carambar. Se connecte à l’API déployée sur Render.
 
-## Expanding the ESLint configuration
+## Prérequis
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js ≥ 16
+- npm
+- Un navigateur moderne
+
+## Installation
+
+1. Cloner le dépôt :
+   ```bash
+   git clone https://github.com/alexis-nm/carambar-jokes-frontend.git
+   cd carambar-jokes-frontend
+   ```
+2. Installer les dépendances :
+   ```bash
+   npm install
+   ```
+3. Créer un fichier `.env` (optionnel, si l’API change) :
+   ```env
+   VITE_API_BASE=https://carambar-jokes-backend.onrender.com/api/v1
+   ```
+
+## Usage
+
+### En local
+
+```bash
+npm run dev
+```
+
+Ouvrir [http://localhost:5173](http://localhost:5173) dans un navigateur.
+
+### Déploiement GitHub Pages
+
+```bash
+npm run deploy
+```
+
+Le site sera accessible à : `https://alexis-nm.github.io/carambar-jokes-frontend/`
+
+## Structure du projet
+
+```
+carambar-jokes-frontend/
+├─ public/
+├─ src/
+│  ├─ api/
+│  │  └─ jokeApi.js    # service axios
+│  ├─ components/
+│  │  ├─ ButtonRandom.jsx
+│  │  └─ JokeDisplay.jsx
+│  ├─ App.jsx
+│  ├─ main.jsx
+│  └─ index.css
+├─ .env
+└─ package.json
+```
+
+## Fonctionnalités
+
+- Bouton « Donne-moi une blague ! » pour récupérer une blague aléatoire.
+
+*Bon amusement avec de bonnes blagues Carambar !*
