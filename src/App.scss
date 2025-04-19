@@ -1,0 +1,53 @@
+@use "sass:color";
+
+.App {
+  background: #fff7e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+
+    .wrapper {
+      background: #fffbea;
+      border: 2px solid #f4d16a;
+      width: 80%;
+      max-width: 500px;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform-origin: top center;
+      position: relative;
+      overflow: hidden;
+
+      .close-button {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .joke {
+        margin-top: 1.5rem;
+        font-size: 1.25rem;
+        color: #333;
+        text-align: center;
+        line-height: 1.6;
+        white-space: pre-wrap;
+      }
+    }
+  }
+}

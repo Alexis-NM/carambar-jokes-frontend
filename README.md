@@ -23,10 +23,7 @@ Mini-application web React lancée avec Vite pour afficher aléatoirement des bl
    ```bash
    npm install
    ```
-3. Créer un fichier `.env` (optionnel, si l’API change) :
-   ```env
-   VITE_API_BASE=https://carambar-jokes-backend.onrender.com/api/v1
-   ```
+3. Créer un fichier `.env` à la racine à partir du fichier `.env.sample`
 
 ## Usage
 
