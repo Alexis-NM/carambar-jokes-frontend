@@ -2,32 +2,30 @@ import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import { LandingPage } from "./components/LandingPage";
 import { JokeDisplay } from "./components/JokeDisplay";
-import { fetchRandomJoke } from "./api/jokeApi";
+import { useRandomJoke } from "./api/jokeApi";
 import "./App.scss";
 
 function App() {
-  const [joke, setJoke] = useState("");
   const [overlayVisible, setOverlayVisible] = useState(false);
+  const { joke, loadJoke } = useRandomJoke();
 
   const openOverlay = async () => {
     try {
-      const data = await fetchRandomJoke();
-      setJoke(data.content);
+      await loadJoke();
       setOverlayVisible(true);
     } catch {
-      setJoke("Erreur lors du chargement de la blague.");
       setOverlayVisible(true);
     }
   };
 
   const closeOverlay = () => {
     setOverlayVisible(false);
-    setJoke("");
   };
 
   return (
     <section className="App">
       <LandingPage onClick={openOverlay} />
+
       <AnimatePresence>
         {overlayVisible && (
           <Motion.div
@@ -48,7 +46,11 @@ function App() {
               <button className="close-button" onClick={closeOverlay}>
                 ×
               </button>
-              <JokeDisplay content={joke} />
+              <JokeDisplay
+                content={
+                  joke?.content || "Erreur lors du chargement de la blague."
+                }
+              />
             </Motion.div>
           </Motion.div>
         )}
