@@ -1,9 +1,21 @@
+import { useState, useRef, useCallback } from "react";
 import axios from "axios";
 
 const API_BASE = import.meta.env.VITE_API_BASE;
 
-export const fetchRandomJoke = () =>
-  axios.get(`${API_BASE}/jokes/random`).then(res => res.data);
+export function useRandomJoke() {
+  const [joke, setJoke] = useState(null);
+  const lastJokeIdRef = useRef(null);
 
-export const fetchAllJokes = () =>
-  axios.get(`${API_BASE}/jokes`).then(res => res.data);
+  const loadJoke = useCallback(async () => {
+    const { data } = await axios.get(`${API_BASE}/jokes/random`, {
+      params: lastJokeIdRef.current
+        ? { lastJokeId: lastJokeIdRef.current }
+        : {},
+    });
+    lastJokeIdRef.current = data.id;
+    setJoke(data);
+  }, []);
+
+  return { joke, loadJoke };
+}
